@@ -1,0 +1,37 @@
+Kateryna Osadchuk
+Assignment 1
+
+I tested my program by changing the values in the config.txt file. There were 2 particularly interesting configurations:
+SEED = 98765
+INIT_TIME = 0
+FIN_TIME = 25000
+ARRIVE_MIN = 3
+ARRIVE_MAX = 10
+CPU_MIN = 1
+CPU_MAX = 10
+DISK_ONE_MIN = 6
+DISK_ONE_MAX = 10
+DISK_TWO_MIN = 5
+DISK_TWO_MAX = 25
+QUIT_PROB = 0.2
+
+
+SEED = 98765
+INIT_TIME = 0
+FIN_TIME = 25000
+ARRIVE_MIN = 30
+ARRIVE_MAX = 80
+CPU_MIN = 10
+CPU_MAX = 60
+DISK_ONE_MIN = 60
+DISK_ONE_MAX = 100
+DISK_TWO_MIN = 60
+DISK_TWO_MAX = 120
+QUIT_PROB = 0.2
+
+In the first configuration, I found that the low values for D1/D2 Max led to very small average queue sizes and response times (4 and 10 respectively). Also, since the queues were short, the disks were less busy and had a utilization of 71-83%. However, the CPU still had a fairly large queue (avg 2919) and thus had a utilization of 100%. This is because so many jobs were arriving due to the small arrive_max value. Since the jobs were split between 2 disks after exiting the CPU, it's logical that the disks were less busy than the CPU since each one had at most half of the jobs that the CPU had. 
+
+In the second configuration, the utilizations of each server were about 99.2%, which made sense since the time it took to complete a job as longer and so more items ended up in the queue. Thus, the servers were constantly processing jobs and so they were very rarely idle. This is also seen by the fact that the average queue size was 173 for the CPU and 28 for disk 1/2. Once again, it's reasonable that the queues for the disks were less than the CPU because the jobs were split between 2 disks. 
+
+Some general observations I made from running this simulation over various configurations was that Disk 1 and 2 had nearly identical queue sized (both max and average), and the CPU always had the largest queue size. The throughput was always less than 0.1, which makes sense because fin_time-init_time was a much larger value than the number of jobs processed by a server. Also, if I only changed the seed, the results I got were very similar which indicated my program was running correctly. The CPU also had the largest average response time each run which is reasonable since its queue was the largest. I think if we only had one disk, the response times and queue sizes between the CPU and disk would have been more similar. 
+

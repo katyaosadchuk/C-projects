@@ -1,0 +1,64 @@
+This is a basic shell that supports the following function as builtin commands: help, cd, dir, clr, echo1, path, env, and exit. All other commands are interpreted as program invocation. 
+
+
+
+To pipe commands:
+command1 | command2
+
+To redirect output:
+command > out_file
+
+To redirect input:
+command < in_file
+
+To process background tasks:
+command &
+
+
+
+
+ls
+List directory contents
+
+dir [directory]
+Lists contents of specified directory
+
+pwd
+Path of working directory
+
+cd [destination]
+Change working directory
+
+mv [source] [destination]
+Move file or change name
+
+cp [file name]
+Copy file
+
+mkdir [directory name]
+Make directory
+
+rmdir [directory name]
+Remove directory
+
+rm [file name]
+Remove files
+
+find [file name]
+look for file
+
+cat [file name]
+output contents of a file
+
+path [string]
+adds string to path environment variable
+
+echo1 [string]
+prints string to stdout
+
+clr
+clears the screen
+
+env
+prints all environment variables
+
